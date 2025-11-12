@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cão sem Dono - Doação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #EFEFEF;
+        }
+        .logo {
+        width: 80px;
+        margin-right: 15px;
+        filter: invert(100%) brightness(0%) contrast(100%);
+        }
+        .navbar-nav .nav-link {
+        background-color: #E7AA5B;
+        color: #4D4233;
+        font-weight: 600;
+        border-radius: 30px;
+        padding: 8px 50px !important;
+        margin: 10px;
+        transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+        background-color: #55ADBE;
+        color: #EFEFEF;
+        }
+
+        .navbar-nav .nav-link.active {
+        background-color: #55ADBE;
+        color: #EFEFEF !important;
+        }
+
+        .banner {
+        position: relative;
+        text-align: center;
+        background-color: #E7AA5B;
+        color: #4D4233;
+        padding: 9rem 1rem;
+        overflow: hidden;
+        }
+
+        .banner .container {
+        position: relative;
+        z-index: 2;
+        }
+
+        .banner img {
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        right: 5%;
+        top: 0;
+        z-index: 1;
+        transition: all 0.3s ease;
+        }
+
+        .banner h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        }
+
+        /* Media queries para responsividade */
+        @media (max-width: 768px) {
+        .banner {
+            padding: 3rem 1rem;
+        }
+        .banner img {
+            max-width: 80%;
+            opacity: 0.3;
+        }
+        }
+
+        @media (max-width: 576px) {
+        .banner {
+            padding: 2rem 1rem;
+        }
+        .banner img {
+            max-width: 60%;
+        }
+        }
+
+        .banner h2 {
+        font-size: 1.2rem;
+        color: #9F6926;
+        }
+
+        /* Texto principal */
+        section {
+        padding: 3rem 1rem;
+        }
+
+        @media (min-width: 1000px) {
+        section {
+            padding: 4rem 17rem !important;
+        }
+        }
+
+        section h1 {
+        color: #55ADBE;
+        font-weight: 700;
+        }
+
+        section h2 {
+        color: #9F6926;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        }
+
+        section p {
+        font-size: 1rem;
+        line-height: 1.7;
+        text-align: justify;
+        color: #4D4233;
+        }
+
+        footer {
+        background-color: #4D4233;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #EFEFEF;
+        }
+
+        footer .pix {
+        font-weight: 600;
+        color: #e67e22;
+        }
+
+        /* Carrossel */
+        .carousel {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .carousel-inner {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .carousel-inner img {
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .Doacoes{
+            font-family: 'Segoe UI', sans-serif;
+            color: #3C3326;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 10px;
+        }
+        .card {
+            background-color: #E7AA5B;
+            border-radius: 10px;
+            padding: 20px;
+            width: 60%;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .picpay h3 {
+            color: #4BC759;
+        }
+
+        .pix h3 {
+            color: #3C3326;
+        }
+
+        .qr {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .qr img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .transfer {
+            background-color: #E7AA5B;
+        }
+
+        .transfer h3 {
+            color: #3C3326;
+            font-size: 1rem;
+        }
+
+        .banks {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .bank {
+            background-color: #9F6926;
+            color: #fff;
+            border-radius: 6px;
+            padding: 10px;
+            width: 48%;
+            font-size: 0.9rem;
+        }
+
+        .bank p {
+            margin: 4px 0;
+        }
+
+        .paypal {
+            background-color: #003087;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 340px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .card-transfer{
+            background-color: #E7AA5B;
+            padding: 20px;
+            width: 60%;
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        .paypal:hover {
+            background-color: #0056c9;
+        }
+        @media (max-width: 700px) {
+            .banks {
+                flex-direction: column !important;
+                align-items: center;
+                gap: 10px;
+            }
+            .bank {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+        <div class="container">
+            <img src="IMGs/CãoSemDonoLogo.avif" alt="Logo do Cão sem Dono" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="home.html">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="adocao.html">Adoção</a></li>
+                <li class="nav-item"><a class="nav-link active" href="doacao.html">Doação</a></li>
+                <li class="nav-item"><a class="nav-link" href="voluntario.html">Voluntário</a></li>
+                <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="container">
+        <h1>Sobre a Cão sem Dono</h1>
+        <h2>Quem somos?</h2>
+        </div>
+        <img src="IMGs/BannerCaoSemDono.webp" alt="Cachorro sorrindo">
+    </div>
+
+    <!-- Texto -->
+    <section class="container">
+        <p>
+        Existem muitas formas de nos ajudar a cuidar dos mais de 450 cães que cuidamos e alimentamos todos os dias, fora os cães que ajudamos a sustentar de outros protetores.
+        <br><br>Você pode doar ração, cobertores, medicamentos, material de limpeza e de procedimento, artigos para nosso Bazar permanente ou fazer uma doação em dinheiro, o que nos ajuda no pagamento de despesas como conta de água, luz, telefone, internet, funcionários, impostos, compra de ração, medicamentos, veterinários, exames laboratoriais, procedimentos cirúrgicos, combustível, feiras de adoção, entre tantas outras.
+        </p>
+    </section>
+
+    <hr>
+
+    <div class="Doacoes">
+        <div class="card picpay">
+            <h3 style="color: #3C3326;">Doe com <span style="color:#2b7c34;">PicPay</span></h3>
+            <p style="color: #4D4233;">Para doar com PICPAY baixe o app e escaneie o QR Code abaixo:</p>
+            <div class="qr">
+                <img src="IMGs/qrcode.avif" alt="QR PicPay">
+            </div>
+        </div>
+
+        <div class="card pix">
+            <h3 style="color: #3C3326;">Doe com <span style="color:#015551;">Pix</span></h3>
+            <p style="color: #4D4233;">CNPJ – 10.157.938/0001-73</p>
+        </div>
+
+        <div class="card-transfer">
+            <h3>DEPÓSITO, TRANSFERÊNCIA OU DOC:</h3>
+            <p style="font-size: 0.9rem; color: #3C3326;">Você também pode fazer depósito, transferências ou DOC para as contas abaixo:</p>
+            <div class="banks">
+                <div class="bank">
+                    <p><strong>BRADESCO</strong></p>
+                    <p>AG: 1480</p>
+                    <p>C/C: 39641-9</p>
+                    <p>Favorecido: Cão Sem Dono</p>
+                    <p>CNPJ: 10.157.938/0001-73</p>
+                </div>
+                <div class="bank">
+                    <p><strong>ITAÚ</strong></p>
+                    <p>AG: 7847</p>
+                    <p>C/C: 01301-3</p>
+                    <p>Favorecido: Cão Sem Dono</p>
+                    <p>CNPJ: 10.157.938/0001-73</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="paypal">Doe por PAY PAL</a>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p class="mb-0 pix">DOE PARA CÃO SEM DONO<br>PIX: 10.187.338/0001-73</p>
+        <p class="mt-2">© 2025 Cão sem Dono. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
